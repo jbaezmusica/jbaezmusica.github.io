@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<title>PRETTY BOY</title>
+		<style>	
+				#container {
+					background-image: url('VIDEO/PB.png');
+					position: fixed;
+					width: 100%; 
+					height: auto;
+					right: 0%; top: 0%; left: 0%; bottom: 0%;
+					z-index: -1;
+					background-size: cover;
+				}
+				#listenhere_bground {
+					background-image: url('VIDEO/listenhere.png');
+					position: fixed;
+					width: 100%; 
+					height: auto;
+					right: 0%; top: 0%; left: 0%; bottom: 0%;
+					z-index: 0;
+					background-size: cover;
+				}
+				#bgroundgif{
+					position: fixed;
+					width: 100%; 
+					height: auto;
+					right: 0%; top: 0%;
+					z-index: 1;
+					background-size: cover;
+				}
+				#spotify_icon {
+					position: absolute;
+					left: 44%; top: 35%;
+					width: 11%;
+					min-width: 130px;
+					opacity: 1;
+					cursor: pointer;
+				}
+				#spotify_icon:hover {
+				 	filter: opacity(50%) blur(1px);
+				}
+				#soundcloud_icon {
+					position: absolute;
+					left: 44%; top: 65%;
+					width: 11%;
+					min-width: 130px;
+					opacity: 1;
+					cursor: pointer;
+				}
+				#soundcloud_icon:hover {
+				 	filter: opacity(50%) blur(1px);
+				}
+				#apple_icon {
+					position: absolute;
+					left: 44%; top: 6%;
+					width: 11%;
+					min-width: 130px;
+					opacity: 1;
+					cursor: pointer;
+				}
+				#apple_icon:hover {
+				 	filter: opacity(50%) blur(1px);
+				}
+				#listen_here_click {
+					position: fixed;
+					left: 34%; top: 43%;
+					width: 400px; height: 200px;
+				}
+				#listen_here_click:hover {
+					cursor: pointer;
+				}
+		</style>
+    	</head>
+	<body class="container-fluid">
+		<script>
+			//background elements are removed instead of being changed, because changing causes screen flicker/re-render
+			window.onload = function(){
+				if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+				    console.log("MOBILE");
+				}
+				else {
+					console.log("DESKTOP");
+				}
+
+			   var counter = 6;
+			   var timer = setInterval(function () {
+			     if(counter == 0){
+			     	document.getElementById("bgroundgif").remove();
+			     	document.getElementById("listen_here_click").onclick = menu;
+			     	 return clearInterval(timer);	
+			     }
+			     counter--;
+			   }, 1000);
+			}
+			function menu() {
+				document.getElementById("listenhere_bground").remove();
+				document.getElementById('spotify_icon').src='spotify.png';
+				document.getElementById('spotify_icon').title = "SPOTIFY";
+				document.getElementById('soundcloud_icon').src='soundcloud.png';
+				document.getElementById('soundcloud_icon').title = "SOUNDCLOUD";
+				document.getElementById('apple_icon').src='apple.png';
+				document.getElementById('apple_icon').title = "APPLE MUSIC";
+			}
+		</script>
+		<!-- render background gif first over the container and listen here png -->
+		<img id="bgroundgif" src="VIDEO/PB.gif" alt="PBgif"/>
+		<!-- render listen here png over the container. it will be visible after the window.onload timer completes and removes the overlaying bgroundgif-->
+		<div id="listenhere_bground">
+			<div id="listen_here_click"></div>
+		</div>
+		<!-- render container that will have a clickable space. Its background is rendered in the css. it will only be visible after  -->
+		<div id="container">
+		</div>
+		<!--src and alt tags not used so that the img icons do not appear initally-->
+		<img id="apple_icon" onclick="window.open('https://music.apple.com/us/artist/street-kult/1335193534')"/>
+		<img id="spotify_icon" onclick="window.open('https://open.spotify.com/artist/0jcz0BlPHlSJz00gQERMEe')"/>
+		<img id="soundcloud_icon" onclick="window.open('https://soundcloud.com/streetkult')"/>
+	</body>
+</html>	
