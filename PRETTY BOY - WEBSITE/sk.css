@@ -1,0 +1,67 @@
+#container {
+	background-image: url('VIDEO/PB.png');
+	position: fixed;
+	width: 100%; 
+	height: auto;
+	right: 0%; top: 0%; left: 0%; bottom: 0%;
+	z-index: -1;
+	background-size: cover;
+}
+#listenhere_bground {
+	background-image: url('VIDEO/listenhere.png');
+	position: fixed;
+	width: 100%; 
+	height: auto;
+	right: 0%; top: 0%; left: 0%; bottom: 0%;
+	z-index: 0;
+	background-size: cover;
+}
+#bgroundgif{
+	position: fixed;
+	width: 100%; 
+	height: auto;
+	right: 0%; top: 0%;
+	z-index: 1;
+	background-size: cover;
+}
+#spotify_icon {
+	position: absolute;
+	left: 44%; top: 35%;
+	width: 11%;
+	min-width: 130px;
+	opacity: 1;
+	cursor: pointer;
+}
+#spotify_icon:hover {
+ 	filter: opacity(50%) blur(1px);
+}
+#soundcloud_icon {
+	position: absolute;
+	left: 44%; top: 65%;
+	width: 11%;
+	min-width: 130px;
+	opacity: 1;
+	cursor: pointer;
+}
+#soundcloud_icon:hover {
+ 	filter: opacity(50%) blur(1px);
+}
+#apple_icon {
+	position: absolute;
+	left: 44%; top: 6%;
+	width: 11%;
+	min-width: 130px;
+	opacity: 1;
+	cursor: pointer;
+}
+#apple_icon:hover {
+ 	filter: opacity(50%) blur(1px);
+}
+#listen_here_click {
+	position: fixed;
+	left: 34%; top: 43%;
+	width: 400px; height: 200px;
+}
+#listen_here_click:hover {
+	cursor: pointer;
+}
