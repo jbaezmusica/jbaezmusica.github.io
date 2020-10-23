@@ -9,7 +9,7 @@
 	</head>
 	<body>
 		<!-- render background gif first over the container and listen here png -->
-		<img id="bgroundgif" src="VIDEO/PB.gif" alt="PBgif"/>
+		<img id="bgroundgif" src="#" alt="PBgif"/>
 		<!-- render listen here png over the container. it will be visible after the window.onload timer completes and removes the overlaying bgroundgif-->
 		<div id="listenhere_bground">
 			<div id="listen_here_click"></div>
@@ -32,6 +32,9 @@
 				}
 				else {
 					console.log("DESKTOP");
+					document.getElementById("bgroundgif").src = "VIDEO/PB.gif";
+				    document.getElementById("listenhere_bground").style.backgroundImage = "url('VIDEO/listenhere.png')";
+				    document.getElementById("bground").style.backgroundImage = "url('VIDEO/PB.png')";
 				}
 
 			   var counter = 6;

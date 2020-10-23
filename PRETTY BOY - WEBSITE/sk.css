@@ -1,5 +1,4 @@
 #bground {
-	background-image: url('VIDEO/PB.png');
 	position: fixed;
 	width: 100%; 
 	height: auto;
@@ -8,7 +7,6 @@
 	background-size: cover;
 }
 #listenhere_bground {
-	background-image: url('VIDEO/listenhere.png');
 	position: fixed;
 	width: 100%; 
 	height: auto;
