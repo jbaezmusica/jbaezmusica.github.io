@@ -27,8 +27,8 @@
 				if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
 				    console.log("MOBILE");
 				    document.getElementById("bgroundgif").src = "VIDEO/PB_mobile.gif";
-				    document.getElementById("listenhere_bground").src = "VIDEO/PBlistenhere_mobile.png";
-				    document.getElementById("bground").src = "VIDEO/PB_mobile.png";
+				    document.getElementById("listenhere_bground").style.backgroundImage = "url('VIDEO/PBlistenhere_mobile.png')";
+				    document.getElementById("bground").style.backgroundImage = "url('VIDEO/PB_mobile.png')";
 				}
 				else {
 					console.log("DESKTOP");
