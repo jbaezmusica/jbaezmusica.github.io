@@ -27,6 +27,17 @@
 				if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
 				    console.log("MOBILE");
 				    screen.orientation.lock();
+				    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+				    	console.log("IOS");
+				    	document.getElementById("bgroundgif").remove();
+				    	var video = document.createElement('video');
+				    	video.id = "bgroundvid";
+						video.src = 'VIDEO/PB_mobile.mp4';
+						video.type = "video/mp4";
+						video.autoplay = true;
+						video.muted = true;
+						video.playsinline = true;
+				    }
 				    document.getElementById("bgroundgif").src = "VIDEO/PB_mobile.gif";
 				    document.getElementById("listenhere_bground").style.backgroundImage = "url('VIDEO/PBlistenhere_mobile.png')";
 				    document.getElementById("bground").style.backgroundImage = "url('VIDEO/PB_mobile.png')";
@@ -48,7 +59,9 @@
 			   var counter = 6;
 			   var timer = setInterval(function () {
 			     if(counter == 0){
-			     	document.getElementById("bgroundgif").remove();
+			     	var bgroundgif = document.getElementById("bgroundgif");
+			     	if (bgroundgif)
+			     		document.getElementById("bgroundgif").remove();
 			     	document.getElementById("listen_here_click").onclick = menu;
 			     	 return clearInterval(timer);	
 			     }
