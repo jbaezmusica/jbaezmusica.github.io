@@ -26,6 +26,7 @@
 	position: absolute;
 	left: 44%; top: 35%;
 	width: 11%;
+	min-width: 10%;
 	opacity: 1;
 	cursor: pointer;
 }
@@ -36,6 +37,7 @@
 	position: absolute;
 	left: 44%; top: 65%;
 	width: 11%;
+	min-width: 10%;
 	opacity: 1;
 	cursor: pointer;
 }
@@ -48,6 +50,7 @@
 	padding-top: 3%;
 	margin: auto;
 	width: 11%;
+	min-width: 10%;
 	cursor: pointer;
 }
 #apple_icon:hover {
