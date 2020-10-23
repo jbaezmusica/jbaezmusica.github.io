@@ -3,12 +3,11 @@
 	<head>
     	<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
 		<link rel="stylesheet" href="sk.css"> 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<title>PRETTY BOY</title>
 	</head>
-	<body class="container-fluid">
+	<body>
 		<script>
 			//background elements are removed instead of being changed, because changing causes screen flicker/re-render
 			window.onload = function(){
@@ -46,9 +45,8 @@
 		<div id="listenhere_bground">
 			<div id="listen_here_click"></div>
 		</div>
-		<!-- render container that will have a clickable space. Its background is rendered in the css. it will only be visible after  -->
-		<div id="container">
-		</div>
+		<!-- render default bground. background is rendered in the css. it will only be visible after listen here is clicked -->
+		<div id="bground"></div>
 		<!--src and alt tags not used so that the img icons do not appear initally-->
 		<img id="apple_icon" onclick="window.open('https://music.apple.com/us/artist/street-kult/1335193534')"/>
 		<img id="spotify_icon" onclick="window.open('https://open.spotify.com/artist/0jcz0BlPHlSJz00gQERMEe')"/>

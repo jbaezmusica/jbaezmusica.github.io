@@ -1,4 +1,4 @@
-#container {
+#bground {
 	background-image: url('VIDEO/PB.png');
 	position: fixed;
 	width: 100%; 
@@ -28,7 +28,6 @@
 	position: absolute;
 	left: 44%; top: 35%;
 	width: 11%;
-	min-width: 130px;
 	opacity: 1;
 	cursor: pointer;
 }
@@ -39,7 +38,6 @@
 	position: absolute;
 	left: 44%; top: 65%;
 	width: 11%;
-	min-width: 130px;
 	opacity: 1;
 	cursor: pointer;
 }
@@ -48,10 +46,10 @@
 }
 #apple_icon {
 	position: absolute;
-	left: 44%; top: 6%;
+	right: 0%; top: 0%; left: 0%;
+	padding-top: 3%;
+	margin: auto;
 	width: 11%;
-	min-width: 130px;
-	opacity: 1;
 	cursor: pointer;
 }
 #apple_icon:hover {
