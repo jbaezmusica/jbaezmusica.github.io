@@ -1,0 +1,61 @@
+#bground {
+	position: fixed;
+	width: 100%; 
+	height: auto;
+	right: 0%; top: 0%; left: 0%; bottom: 0%;
+	z-index: -1;
+	background-size: cover;
+}
+#listenhere_bground {
+	position: fixed;
+	width: 100%; 
+	height: auto;
+	right: 0%; top: 0%; left: 0%; bottom: 0%;
+	z-index: 0;
+	background-size: cover;
+}
+#bgroundgif{
+	position: fixed;
+	width: 100%; 
+	height: auto;
+	right: 0%; top: 0%;
+	z-index: 1;
+	background-size: cover;
+}
+#spotify_icon {
+	position: absolute;
+	right: 0%; top: 35%; left: 0%;
+	padding-top: 3%;
+	margin: auto;
+	cursor: pointer;
+}
+#spotify_icon:hover {
+ 	filter: opacity(50%) blur(1px);
+}
+#soundcloud_icon {
+	position: absolute;
+	right: 0%; top: 65%; left: 0%;
+	padding-top: 3%;
+	margin: auto;
+	cursor: pointer;
+}
+#soundcloud_icon:hover {
+ 	filter: opacity(50%) blur(1px);
+}
+#apple_icon {
+	position: absolute;
+	right: 0%; top: 12%; left: 0%;
+	margin: auto;
+	cursor: pointer;
+}
+#apple_icon:hover {
+ 	filter: opacity(50%) blur(1px);
+}
+#listen_here_click {
+	position: fixed;
+	left: 34%; top: 43%;
+	width: 400px; height: 200px;
+}
+#listen_here_click:hover {
+	cursor: pointer;
+}
