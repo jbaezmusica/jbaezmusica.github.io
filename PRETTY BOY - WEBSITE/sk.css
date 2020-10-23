@@ -25,8 +25,6 @@
 #spotify_icon {
 	position: absolute;
 	left: 44%; top: 35%;
-	width: 11%;
-	min-width: 10%;
 	opacity: 1;
 	cursor: pointer;
 }
@@ -36,8 +34,6 @@
 #soundcloud_icon {
 	position: absolute;
 	left: 44%; top: 65%;
-	width: 11%;
-	min-width: 10%;
 	opacity: 1;
 	cursor: pointer;
 }
@@ -49,8 +45,6 @@
 	right: 0%; top: 0%; left: 0%;
 	padding-top: 3%;
 	margin: auto;
-	width: 11%;
-	min-width: 10%;
 	cursor: pointer;
 }
 #apple_icon:hover {
