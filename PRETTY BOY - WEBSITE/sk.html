@@ -16,6 +16,9 @@ What? The NEW UI uses a more simple, intuitive design which uses an image based 
 	</head>
 	<!-- Setup body -->
 	<body>
+		<img id="layer2" src="VIDEO/PB.gif" />
+		<img id="layer1" src="VIDEO/listenhere.jpg" />
+		<div id="listen_here_click" onclick="menu();" />
 		<div id="icons">
 			<img id="apple" src="apple.png" data-toggle="tooltip" title="APPLE" alt="apple" onclick="window.open('', '_blank');" />
 			<img id="spotify" src="spotify.png" data-toggle="tooltip" title="SPOTIFY" alt="spotify" onclick="window.open('', '_blank');"/>
@@ -26,17 +29,24 @@ What? The NEW UI uses a more simple, intuitive design which uses an image based 
 		document.getElementById("apple").hidden = true;
 		document.getElementById("spotify").hidden = true;
 		document.getElementById("soundcloud").hidden = true;
+		document.getElementById("listen_here_click").hidden = true;
 
-		var counter = 2;
-	   var timer = setInterval(function () {
-	   	if(counter == 0){
+		var counter = 6;
+	    var timer = setInterval(function () {
+		   	if(counter == 0){
+		   		document.getElementById("layer2").remove();
+				document.getElementById("listen_here_click").hidden = false;
+		     	return clearInterval(timer);	
+		    }
+		    console.log(counter);
+		    counter--;
+	    }, 1000);
+
+	    function menu () {
+	    	document.getElementById("layer1").remove();
 	     	document.getElementById("apple").hidden = false;
-		document.getElementById("spotify").hidden = false;
-		document.getElementById("soundcloud").hidden = false;
-	     	 return clearInterval(timer);	
-	     }
-	     console.log(counter);
-	     counter--;
-	   }, 1000);
+			document.getElementById("spotify").hidden = false;
+			document.getElementById("soundcloud").hidden = false;
+	    }
 	</script>
 </html>	
