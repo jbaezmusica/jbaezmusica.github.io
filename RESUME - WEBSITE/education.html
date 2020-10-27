@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" href="resume.css"> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<title>RESUME BUILDER</title>
+	</head>
+	<body>
+		<img id="logo" src="IMG/Resume builder logo.png" alt="logo"/>
+		<div id="list"></div>
+		<!-- render background gif first over the container and listen here png -->
+		<img id="bgroundgif" src="#" alt="educationGIF"/>
+		<!-- render listen here png over the container. it will be visible after the window.onload timer completes and removes the overlaying bgroundgif-->
+		<!-- <div id="listenhere_bground">
+			<div id="listen_here_click"></div>
+		</div> -->
+		<!-- render default bground. background is rendered in the css. it will only be visible after listen here is clicked -->
+		<div id="bground">
+			<div id="txt_div">
+ 			 <input type="text" class="txt_input" id="txt_input1" placeholder="e.g. University Name"/>
+ 			 <br><br>
+ 			 <input type="text" class="txt_input" id="txt_input2" placeholder="e.g. Graduation or Expected Date"/>
+ 			 <br><br>
+ 			 <input type="text" class="txt_input" id="txt_input3" placeholder="e.g. Major (if applicable)"/>
+ 			</div>
+ 			<div id="button_div">
+ 			 <br><br><br><br><br>
+ 			 <button id="add_button_input" type="button" onclick="add();">Add</button>
+ 			 <button id="next_button_input" type="button" onclick="next('experience');">Next</button>
+ 			</div>
+		</div>
+		<!--src and alt tags not used so that the img icons do not appear initally-->
+		<script>
+			//background elements are removed instead of being changed, because changing causes screen flicker/re-render
+			window.onload = function(){
+				
+				if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+				    console.log("MOBILE");
+				    screen.orientation.lock();  
+				}
+				else {
+					console.log("DESKTOP");
+					document.getElementById("bgroundgif").src = "IMG/education.gif";
+				   // document.getElementById("listenhere_bground").style.backgroundImage = "url('VIDEO/listenhere.png')";
+				    document.getElementById("bground").style.backgroundImage = "url('IMG/education.png')";
+				}
+
+			   var counter = 1;
+			   var timer = setInterval(function () {
+			     if(counter == 0){
+			     	var bgroundgif = document.getElementById("bgroundgif");
+			     	if (bgroundgif)
+			     		document.getElementById("bgroundgif").remove();
+			     	//document.getElementById("listen_here_click").onclick = menu;
+			     	 return clearInterval(timer);	
+			     }
+			     counter--;
+			   }, 1000);
+
+			   sessionStorage.list += "<br><br><b>EDUCATION:</b>";
+			}
+			function next(pagename) {
+				sessionStorage.list += "<br>_____________________________________________________________________________________________";
+				window.open(pagename+".html");
+			}
+			function add () {
+				var list = "<br><br>" + "&#8226; <b>" + document.getElementById("txt_input1").value +
+					"</b> -- " + document.getElementById("txt_input2").value + "<br>" +
+					"&nbsp;&nbsp;- <u>MAJOR</u>: " + document.getElementById("txt_input3").value;
+
+				document.getElementById("txt_input1").value = "";
+				document.getElementById("txt_input2").value = "";
+				document.getElementById("txt_input3").value = "";
+
+				document.getElementById("list").innerHTML += list;
+
+				sessionStorage.list += list;				
+				console.log("content",  sessionStorage.list);
+
+			}
+		</script>
+	</body>
+</html>	
