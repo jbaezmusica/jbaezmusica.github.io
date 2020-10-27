@@ -9,10 +9,19 @@
 	</head>
 	<body>
 		<!-- render background gif first over the container and listen here png -->
-		<img id="bgroundgif" src="#" alt="PBgif"/>
+		<!-- <img id="bgroundgif" src="#" alt="PBgif"/> -->
 		<!-- render listen here png over the container. it will be visible after the window.onload timer completes and removes the overlaying bgroundgif-->
 		<div id="listenhere_bground">
 			<div id="listen_here_click"></div>
+		</div>
+
+		<div id="bground_animation">
+		  <img id="layer5" src="#" />
+		  <img id="layer4" src="#" />
+		  <img id="layer3" src="#" />
+		  <img id="layer2" src="#" />
+		  <img id="layer1" src="#" />
+		  <img id="layer0" src="#" />
 		</div>
 		<!-- render default bground. background is rendered in the css. it will only be visible after listen here is clicked -->
 		<div id="bground"></div>
@@ -27,48 +36,59 @@
 				if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
 				    console.log("MOBILE");
 				    screen.orientation.lock();
-				    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-				    	console.log("IOS");
-				    	document.getElementById("bgroundgif").remove();
-				    	var video = document.createElement('video');
-				    	video.id = "bgroundvid";
-						video.src = 'VIDEO/PB_mobile.mp4';
-						video.type = "video/mp4";
-						video.autoplay = true;
-						video.muted = true;
-						video.playsinline = true;
-				    }
-				    document.getElementById("bgroundgif").src = "VIDEO/PB_mobile.gif";
-				    document.getElementById("listenhere_bground").style.backgroundImage = "url('VIDEO/PBlistenhere_mobile.png')";
+				    
+					document.getElementById("layer0").src = "VIDEO/PB_mobile.png";
+					document.getElementById("layer1").src = "VIDEO/PBtitle_mobile.png";
+					document.getElementById("layer2").src = "VIDEO/PBalbumtitle_mobile.png";
+					document.getElementById("layer3").src = "VIDEO/PB_mobile.png";
+					document.getElementById("layer4").src = "VIDEO/PBlistenhere_mobile.png";
+					document.getElementById("layer5").src = "VIDEO/PB_mobile.png";
+					
 				    document.getElementById("bground").style.backgroundImage = "url('VIDEO/PB_mobile.png')";
 				    document.getElementById('spotify_icon').style.width='30%';
 					document.getElementById('soundcloud_icon').style.width='30%';
-					document.getElementById('apple_icon').style.width='30%';
-				   
+					document.getElementById('apple_icon').style.width='30%';				   
 				}
 				else {
 					console.log("DESKTOP");
-					document.getElementById("bgroundgif").src = "VIDEO/PB.gif";
-				    document.getElementById("listenhere_bground").style.backgroundImage = "url('VIDEO/listenhere.png')";
+
+					document.getElementById("layer0").src = "VIDEO/PB.png";
+					document.getElementById("layer1").src = "VIDEO/PBtitle.png";
+					document.getElementById("layer2").src = "VIDEO/PBalbumtitle.png";
+					document.getElementById("layer3").src = "VIDEO/PB.png";
+					document.getElementById("layer4").src = "VIDEO/listenhere.png";
+					document.getElementById("layer5").src = "VIDEO/PB.png";
+
 				    document.getElementById("bground").style.backgroundImage = "url('VIDEO/PB.png')";
 				    document.getElementById('spotify_icon').style.width='11%';
 					document.getElementById('soundcloud_icon').style.width='11%';
 					document.getElementById('apple_icon').style.width='11%';
 				}
 
-			   var counter = 6;
-			   var timer = setInterval(function () {
-			     if(counter == 0){
-			     	var bgroundgif = document.getElementById("bgroundgif");
-			     	if (bgroundgif)
-			     		document.getElementById("bgroundgif").remove();
-			     	document.getElementById("listen_here_click").onclick = menu;
-			     	 return clearInterval(timer);	
-			     }
-			     counter--;
-			   }, 1000);
+				var counter = 9;
+				   var timer = setInterval(function () {
+				   	if(counter == 9){
+				     	document.getElementById("layer0").style.opacity = 0;
+				     }
+				     else if(counter == 8){
+				     	document.getElementById("layer1").style.opacity = 0;
+				     }
+				     else if(counter == 4){
+				     	document.getElementById("layer2").style.opacity = 0;
+				     }
+				     else if(counter == 2){
+				     	document.getElementById("layer3").style.opacity = 0;
+				     }
+				     else if(counter == 0){
+				     	document.getElementById("listen_here_click").onclick = menu;
+				     	 return clearInterval(timer);	
+				     }
+				     console.log(counter);
+				     counter--;
+				   }, 1000);
 			}
 			function menu() {
+				document.getElementById("layer4").remove();
 				document.getElementById("listenhere_bground").remove();
 				document.getElementById('spotify_icon').src='spotify.png';
 				document.getElementById('spotify_icon').title = "SPOTIFY";

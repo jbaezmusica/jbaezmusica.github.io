@@ -6,19 +6,33 @@
 	z-index: -1;
 	background-size: cover;
 }
-#bgroundvid {
-	position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%;
-  min-height: 100%;
+
+#bground_animation {
+  position: fixed;
+	width: 100%; 
+	height: 100%;
+	right: 0%; top: 0%; left: 0%; bottom: 0%;
+	z-index: 0;
 }
+
+#bground_animation img {
+  position:fixed;
+  width: 100%; 
+  height: auto;
+  background-size: cover;
+  left:0;
+  -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
 #listenhere_bground {
 	position: fixed;
 	width: 100%; 
 	height: auto;
 	right: 0%; top: 0%; left: 0%; bottom: 0%;
-	z-index: 0;
+	z-index: 1;
 	background-size: cover;
 }
 #bgroundgif{
@@ -62,6 +76,7 @@
 	position: fixed;
 	left: 34%; top: 43%;
 	width: 400px; height: 200px;
+	z-index: 2;
 }
 #listen_here_click:hover {
 	cursor: pointer;
