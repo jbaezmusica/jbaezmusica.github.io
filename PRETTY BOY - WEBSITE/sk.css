@@ -8,7 +8,7 @@
 }
 
 #bground_animation {
-  position: fixed;
+  position: absolute;
 	width: 100%; 
 	height: 100%;
 	right: 0%; top: 0%; left: 0%; bottom: 0%;
@@ -16,10 +16,11 @@
 }
 
 #bground_animation img {
-  position:fixed;
+  position:absolute;
   width: 100%; 
-  height: auto;
+  height: 110%;
   background-size: cover;
+  background-repeat: no-repeat;
   left:0;
   -webkit-transition: opacity 1s ease-in-out;
   -moz-transition: opacity 1s ease-in-out;
@@ -32,14 +33,6 @@
 	width: 100%; 
 	height: auto;
 	right: 0%; top: 0%; left: 0%; bottom: 0%;
-	z-index: 1;
-	background-size: cover;
-}
-#bgroundgif{
-	position: fixed;
-	width: 100%; 
-	height: auto;
-	right: 0%; top: 0%;
 	z-index: 1;
 	background-size: cover;
 }
