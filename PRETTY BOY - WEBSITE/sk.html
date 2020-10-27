@@ -29,6 +29,23 @@ What? The NEW UI uses a more simple, intuitive design which uses an image based 
 		</div>
 	</body>
 	<script type="text/javascript">
+		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {		
+			console.log("MOBILE");    
+			document.getElementById("layer2").setAttribute("src", "VIDEO/PB_mobile.gif");
+			document.getElementById("layer1").setAttribute("src", "VIDEO/PBlistenhere_mobile.jpg");
+
+			document.body.setAttribute("style", "background-image: url('VIDEO/PB_mobile.jpg')");
+
+			document.getElementById('icons').style.top='30%';
+		    document.getElementById('spotify').style.width='100%';
+			document.getElementById('soundcloud').style.width='100%';
+			document.getElementById('apple').style.width='100%';				   
+		}
+		else {
+			console.log("DESKTOP");
+			document.body.setAttribute("style", "background-image: url('VIDEO/PB.jpg')");
+		}
+
 		document.getElementById("apple").hidden = true;
 		document.getElementById("spotify").hidden = true;
 		document.getElementById("soundcloud").hidden = true;

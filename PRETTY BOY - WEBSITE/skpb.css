@@ -1,6 +1,5 @@
 body {
 	position: fixed;
-	background-image: url('VIDEO/PB.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	z-index: 0;
@@ -8,14 +7,14 @@ body {
 
 #layer2 { 
 	position: fixed;
-	top: 0%;
+	top: 0%; left: 0%;
 	width: 100%;
 	height: auto;
 	z-index: 2;
 }
 #layer1 { 
 	position: fixed;
-	top: 0%;
+	top: 0%; left: 0%;
 	width: 100%;
 	height: auto;
 	z-index: 1;
