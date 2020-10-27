@@ -18,7 +18,7 @@
 #bground_animation img {
   position:absolute;
   width: 100%; 
-  height: auto;
+  height: 110%;
   background-size: cover;
   background-repeat: no-repeat;
   left:0;
