@@ -21,11 +21,11 @@ What? The NEW UI uses a more simple, intuitive design which uses an image based 
 	<body>
 		<img id="layer2" src="VIDEO/PB.gif" />
 		<img id="layer1" src="VIDEO/listenhere.jpg" />
-		<div id="listen_here_click" onclick="menu();" />
+		<div id="listen_here_click" onclick="menu()" />
 		<div id="icons">
-			<img id="apple" src="apple.png" data-toggle="tooltip" title="APPLE" alt="apple" onclick="window.open('', '_blank');" />
-			<img id="spotify" src="spotify.png" data-toggle="tooltip" title="SPOTIFY" alt="spotify" onclick="window.open('', '_blank');"/>
-			<img id="soundcloud" src="soundcloud.png" data-toggle="tooltip" title="SOUNDCLOUD" alt="soundcloud" onclick="window.open('', '_blank');"/>
+			<img id="apple" src="apple.png" data-toggle="tooltip" title="APPLE" alt="apple" onclick="window.open('https://music.apple.com/us/artist/street-kult/1335193534', '_blank');" />
+			<img id="spotify" src="spotify.png" data-toggle="tooltip" title="SPOTIFY" alt="spotify" onclick="window.open('https://open.spotify.com/artist/0jcz0BlPHlSJz00gQERMEe', '_blank');"/>
+			<img id="soundcloud" src="soundcloud.png" data-toggle="tooltip" title="SOUNDCLOUD" alt="soundcloud" onclick="window.open('https://soundcloud.com/streetkult', '_blank');"/>
 		</div>
 	</body>
 	<script type="text/javascript">
@@ -36,10 +36,14 @@ What? The NEW UI uses a more simple, intuitive design which uses an image based 
 
 			document.body.setAttribute("style", "background-image: url('VIDEO/PB_mobile.jpg')");
 
-			document.getElementById('icons').style.top='30%';
-		    document.getElementById('spotify').style.width='100%';
-			document.getElementById('soundcloud').style.width='100%';
-			document.getElementById('apple').style.width='100%';				   
+			document.getElementById('icons').style.top='20%';
+			document.getElementById('icons').style.left='35%';
+		    document.getElementById('spotify').style.width='150%';
+		    document.getElementById('spotify').style.paddingTop='50%';
+		    document.getElementById('spotify').style.paddingBottom='50%';
+
+			document.getElementById('soundcloud').style.width='150%';
+			document.getElementById('apple').style.width='150%';				   
 		}
 		else {
 			console.log("DESKTOP");
