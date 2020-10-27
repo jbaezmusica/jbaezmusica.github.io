@@ -1,0 +1,27 @@
+body {
+	background-image: url('VIDEO/PB.gif');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#icons {
+	margin: 0 auto;
+	text-align: center;
+	width: 20%;
+}
+
+#apple {
+	width: auto;
+	margin: 0 auto;
+	padding-top: 10%; padding-bottom: 5%;
+}
+#spotify {
+	width: auto;
+	margin: 0 auto;
+	padding-top: 10%; padding-bottom: 10%;
+}
+#soundcloud {
+	width: auto;
+	margin: 0 auto;
+	padding-top: 5%; padding-bottom: 10%;
+}
