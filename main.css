@@ -1,0 +1,57 @@
+html,body {
+  height: 100%;
+}
+
+img:hover {
+	cursor: pointer;
+	filter: drop-shadow(0px 0px 20px orange) saturate(5);
+}
+
+.logo {
+	margin-left: 39.5%;
+	margin-top: 12%; 
+	width: 20%;
+	height: auto;
+	position: absolute;
+}
+	
+.music_icon {
+	margin-left: 17%;
+	margin-top: 15%; 
+	width: 17%;
+	height: auto;
+	position: absolute;
+}
+
+.camera_icon {
+	margin-left: 65%;
+	margin-top: 18%;
+	width: 13%;
+	height: auto;
+	position: absolute;
+}
+
+.paint_icon {
+	margin-left: 56%; 
+	margin-top: 4%;
+	width: 16%;
+	height: auto;
+	position: absolute;
+}
+
+.health_icon {
+	margin-left: 44.5%; 
+	margin-top: 0%;
+	width: 10%;
+	height: auto;
+	position: absolute;
+}
+
+.work_icon {
+	margin-left: 30%; 
+	margin-top: 7%;
+	width: 10%;
+	height: auto;
+	position: absolute;
+}
+
