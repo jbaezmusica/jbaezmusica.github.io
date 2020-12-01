@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" href="fitness.css"> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<title>FITNESS</title>
+	</head>
+	<body>
+		<a href="fitness.html">
+			<img id="logo" src="IMG/logo.png" style="filter: brightness(150%);" alt="logo"/>
+		</a>
+		<button id="log" onclick="window.open('log.html')">WORKOUT LOG</button>
+		<!-- render background gif first over the container and listen here png -->
+		<img id="bgroundgif" src="#" alt="GIF"/>
+		<div id="flexibility_gauge">
+			<label for="gauge" style="font-size: 70px;">FLEXIBILITY<br></label>
+			<meter id="gauge" value="0" min="0" max="60"></meter> <br>
+			<label style="font-size: 70px;" for="gauge">LV <span id="level" style="font-size: 100px;">0</span><br></label>
+		</div>
+		<div class="menu">
+			<b style="color: white;">WHICH <u>EXERCISE</u> DID YOU DO?</b>
+			  <a href="run.html"><b>RUN</b></a>
+			  <a href="weights.html"><b>WEIGHTS</b></a>
+			  <a href="" class="active"><b>STRETCH</b></a>
+			  <br>
+			  <input type="text" name="time" id="text1" placeholder="How many minutes?">
+			  <span id="num_err" style="color: red; font-weight: bold;" hidden>Enter a number</span>
+			  <input type="text" name="stretch" id="text2" placeholder="How many stretches?">
+			  <span id="num_err2" style="color: red; font-weight: bold;" hidden>Enter a number</span>
+			  <br><br>
+			  <button hidden id="submit" style="border-style: solid; border-color: black; border-width: 2px; border-radius: 10px; height: 40px; background-color: lightgreen;">SUBMIT</button>
+		</div>
+		<img id="stretch_char" src="IMG/stretch_char.gif" alt="GIF"/>
+		<img id="glow" src="IMG/glow.gif" alt="GIF"/>
+		<!--src and alt tags not used so that the img icons do not appear initally-->
+		<script>
+			//background elements are removed instead of being changed, because changing causes screen flicker/re-render
+			window.onload = function(){
+				if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+				    console.log("MOBILE");
+				    screen.orientation.lock();  
+				}
+				else {
+					console.log("DESKTOP");
+					document.getElementById("bgroundgif").src = "IMG/stretch.gif";
+				}
+			}
+
+			function setVals() {
+				document.getElementById('gauge').value = sessionStorage.flexibility % 60;
+				document.getElementById('level').innerHTML = Math.floor(sessionStorage.flexibility / 60);
+				document.getElementById('text1').value = '';
+				document.getElementById('text2').value = '';
+				document.getElementById('submit').hidden = true;
+			}
+			setVals();
+
+			document.getElementById('text1').oninput = function () {
+				console.log("changed");
+				if (isNaN(document.getElementById('text1').value) || document.getElementById('text1').value.length == 0) {
+					document.getElementById('submit').hidden = true;
+					document.getElementById('num_err').hidden = false;
+				}
+				else {
+					if (document.getElementById("text2"))
+						document.getElementById('submit').hidden = false;
+					document.getElementById('num_err').hidden = true;
+				}
+			}
+
+			document.getElementById('text2').oninput = function () {
+				console.log("changed");
+				if (isNaN(document.getElementById('text2').value) || document.getElementById('text2').value.length == 0) {
+					document.getElementById('submit').hidden = true;
+					document.getElementById('num_err2').hidden = false;
+				}
+				else {
+					if (document.getElementById("text1"))
+						document.getElementById('submit').hidden = false;
+					document.getElementById('num_err2').hidden = true;
+				}
+			}
+
+			document.getElementById('submit').onclick = function() {
+				var value = parseFloat(document.getElementById('text1').value);
+				sessionStorage.flexibility = parseFloat(sessionStorage.flexibility) + value;
+				var date = new Date();
+				sessionStorage.log = "&#129496;<u>STRETCH</u>: ("+date.toDateString()+")<br>&nbsp;&nbsp;&nbsp;&nbsp;" + document.getElementById("text1").value + "min, " + document.getElementById("text2").value + "stretches<br><br>" + sessionStorage.log;
+				setVals();
+			}
+		</script> 
+	</body>
+</html>	

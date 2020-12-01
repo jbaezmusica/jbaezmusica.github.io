@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" href="photo.css"> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<title>PHOTO EDITOR</title>
+	</head>
+	<body>
+		<img id="logo" src="IMG/logo.png" alt="logo"/>
+		<img id="bgroundgif" src="#" alt="GIF"/>
+		<div id="bground">
+			<div id="button_div">
+	 			<br><br><br><br><br><br><br><br> 
+	 			<form style="width: 100%; border-style: solid; border-width: 3px; border-color: white; padding: 10px; border-radius: 10px;">
+					<label for="img"><span id="select_label" style="color:white;">s e l e c t&nbsp;&nbsp;&nbsp;&nbsp;i m a g e </span></label><br><br>
+					<input type="file" id="img" onchange="loadFile(event)" name="img" accept="image/*" style="color: white;"><br><br>
+				</form>
+ 			</div>
+			<div id="pic_div" hidden> 
+				<div class="top-row">
+					<label for="blur" style="color:white;"><b>BLUR</b></label>
+  					<input type="range" id="blur" value="0" step="0.1" min="0" max="10">
+				</div>
+				<div class="mid-row">
+					<label for="sepia" style="color:white; writing-mode: vertical-rl;"><b>SEPIA</b>
+  						<input type="range" id="sepia" value="0" step="0.1" min="0" max="100" orient="vertical"/>
+  					</label>
+					<label for="saturation" style="color:white; writing-mode: vertical-rl;"><b>SATURATION</b>
+  						<input type="range" id="saturation" value="1" step="0.1" min="0" max="10" orient="vertical"/>
+  					</label>
+  					<a id="download" href="#" download="photo-editor-img.png">
+  						<canvas id="canvas"></canvas>
+  					</a>
+	  				<label for="brightness" style="color:white; writing-mode: vertical-rl;"><b>BRIGHTNESS</b>
+	  					<input type="range" id="brightness" value="100" step="1" min="0" max="200">
+	  				</label>
+	  				<label for="contrast" style="color:white; writing-mode: vertical-rl;"><b>CONTRAST</b>
+	  					<input type="range" id="contrast" value="100" step="1" min="0" max="200">
+	  				</label>
+				</div>
+ 				<div class="bottom-row">
+		 			<label for="hue" style="color:white;"><b>HUE</b></label>
+  					<input type="range" id="hue" value="0" step="1" min="0" max="360">
+ 				</div>
+ 			</div> 			
+		</div>
+		<!--src and alt tags not used so that the img icons do not appear initally-->
+		<script>
+			//background elements are removed instead of being changed, because changing causes screen flicker/re-render
+			window.onload = function(){
+				if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+				    console.log("MOBILE");
+				    screen.orientation.lock();  
+				}
+				else {
+					console.log("DESKTOP");
+					document.getElementById("bgroundgif").src = "IMG/bground.gif";
+				}
+			}
+
+			var filters = {};
+			var img, dataURL = null;
+			var canvas = document.getElementById('canvas');
+			var ctx = canvas.getContext('2d');
+			var max_size = 700;
+
+			function loadFile(event) {
+				console.log("load");
+				document.getElementById('pic_div').hidden = false;
+				
+				document.getElementById('hue').value = 0;
+				document.getElementById('sepia').value = 0;
+				document.getElementById('saturation').value = 1;
+				document.getElementById('brightness').value = 100;
+				document.getElementById('contrast').value = 100;
+				document.getElementById('blur').value = 0;
+				filters = {};
+
+				img = new Image();
+				img.id = "canvas_img";
+				img.src = URL.createObjectURL(event.target.files[0]);
+
+				img.onload = function () {
+				  if (this.width > this.height) {
+				  	this.style.pixelWidth = max_size;
+				  	this.style.pixelHeight = max_size*(this.naturalHeight/this.naturalWidth);
+				  }
+				  else {
+				  	this.style.pixelHeight = max_size;
+				  	this.style.pixelWidth = max_size*(this.naturalWidth/this.naturalHeight);
+				  }
+				  console.log(this.width, this.height);
+				  console.log(this.style.pixelWidth, this.style.pixelHeight);
+				  canvas.width = this.style.pixelWidth;
+				  canvas.height = this.style.pixelHeight;
+				  ctx.drawImage(this, 0, 0, this.style.pixelWidth, this.style.pixelHeight);
+
+				  dataURL = canvas.toDataURL('image/png');
+    			  document.getElementById("download").href = dataURL;
+
+				  applyFilters();
+				};
+			}
+
+			$('#hue').on('input', function() {
+				filters['hue'] = "hue-rotate("+this.value.toString()+"deg)";
+				applyFilters();
+			});
+			$('#saturation').on('input', function() {
+				filters['saturate'] = "saturate("+this.value.toString()+")";
+				applyFilters();	
+			});
+			$('#sepia').on('input', function() {
+				filters['sepia'] = "sepia("+this.value.toString()+"%)";
+				applyFilters();	
+			});
+			$('#brightness').on('input', function() {
+				filters['brightness'] = "brightness("+this.value.toString()+"%)";
+				applyFilters();	
+			});
+			$('#contrast').on('input', function() {
+				filters['contrast'] = "contrast("+this.value.toString()+"%)";
+				applyFilters();	
+			});
+			$('#blur').on('input', function() {
+				filters['blur'] = "blur("+this.value.toString()+"px)";
+				applyFilters();	
+			});
+
+			function applyFilters() {
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+				var newFilter = "";
+				Object.keys(filters).forEach(function(key) {	
+				    console.log(key, filters[key]);
+				    newFilter += filters[key] + " ";
+				});
+				ctx.filter = newFilter;
+				ctx.drawImage(img, 0, 0, img.style.pixelWidth, img.style.pixelHeight);
+				dataURL = canvas.toDataURL('image/png');
+    			document.getElementById("download").href = dataURL;
+				console.log("New image drawn...");
+				console.log("FILTER:", img.style.filter);
+			}
+		</script> 
+	</body>
+</html>	

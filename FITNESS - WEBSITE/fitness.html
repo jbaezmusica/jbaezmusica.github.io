@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" href="fitness.css"> 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<title>FITNESS</title>
+	</head>
+	<body>
+		<a href="fitness.html">
+			<img id="logo" src="IMG/logo.png" alt="logo"/>
+		</a>
+		<button id="log" onclick="window.open('log.html')">WORKOUT LOG</button>
+		<!-- render background gif first over the container and listen here png -->
+		<img id="bgroundgif" src="#" alt="GIF"/>
+		<div id="gauges">
+			<label for="home_stamina_gauge">STAMINA <span style="font-size: 20px;">LV </span><span id="stamina_level" style="font-size: 50px;">0</span><br></label>
+			<meter id="home_stamina_gauge" value="0" min="0" max="60"></meter><br><br>
+			<label for="home_strength_gauge">STRENGTH <span style="font-size: 20px;">LV </span><span id="strength_level" style="font-size: 50px;">0</span><br></label>
+			<meter id="home_strength_gauge" value="0" min="0" max="60"></meter><br><br>
+			<label for="home_flexibility_gauge" style="font-size: 35px;">FLEXIBILITY <span style="font-size: 20px;">LV </span><span id="flexibility_level" style="font-size: 50px;">0</span><br></label>
+			<meter id="home_flexibility_gauge" value="0" min="0" max="60"></meter><br>
+		</div>
+		<div class="menu">	
+			<b>WHICH <u>EXERCISE</u> DID YOU DO?</b>
+			  <a href="run.html"><b>RUN</b></a>
+			  <a href="weights.html"><b>WEIGHTS</b></a>
+			  <a href="stretch.html"><b>STRETCH</b></a>
+		</div>
+		<!--src and alt tags not used so that the img icons do not appear initally-->
+		<script>
+			//background elements are removed instead of being changed, because changing causes screen flicker/re-render
+			window.onload = function(){
+				if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+				    console.log("MOBILE");
+				    screen.orientation.lock();  
+				}
+				else {
+					console.log("DESKTOP");
+					document.getElementById("bgroundgif").src = "IMG/bground.gif";
+				}
+
+				if (!sessionStorage.log)
+					sessionStorage.log = "";
+				if (!sessionStorage.stamina)
+					sessionStorage.stamina = 0;
+				document.getElementById('home_stamina_gauge').value = sessionStorage.stamina % 60;
+				document.getElementById('stamina_level').innerHTML = Math.floor(sessionStorage.stamina / 60);
+				if (!sessionStorage.strength)
+					sessionStorage.strength = 0;
+				document.getElementById('home_strength_gauge').value = sessionStorage.strength % 60;
+				document.getElementById('strength_level').innerHTML = Math.floor(sessionStorage.strength / 60);
+				if (!sessionStorage.flexibility)
+					sessionStorage.flexibility = 0;
+				document.getElementById('home_flexibility_gauge').value = sessionStorage.flexibility % 60;
+				document.getElementById('flexibility_level').innerHTML = Math.floor(sessionStorage.flexibility / 60);
+			}
+		</script> 
+	</body>
+</html>	

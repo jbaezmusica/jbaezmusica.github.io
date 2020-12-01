@@ -1,0 +1,126 @@
+body {
+	font-family: "Lucida Console";
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+#logo {
+	position: fixed;
+	left: 2%;
+	width: 20%;
+	z-index: 2;
+}
+#bgroundgif {
+	position: fixed;
+	top: -12%; left: 0%;
+	width: 100%; 
+	height: 120%;
+	z-index: -1;
+	background-size: cover;
+}
+#ninjagif {
+	position: absolute;
+	top: 60%;
+}
+#weightsgif {
+	width: 22%;
+	margin-top: 25%;
+	margin-left: 60%;
+	filter: contrast(75%) saturate(85%);
+}
+#stretch_char {
+	width: 15%;
+	margin-top: 25%;
+	margin-left: 43%;
+	filter: brightness(40%) contrast(80%);
+}
+#glow {
+	position: absolute;
+	width: 30%;
+	right: 34.5%; top: 31%;
+	filter: opacity(20%) blur(3px);
+}
+#text1 {
+	border-style: solid; border-color: black; border-width: 2px;  border-radius: 10px; 
+	height: 20px; width: 175px;
+}
+#text2 {
+	border-style: solid; border-color: black; border-width: 2px;  border-radius: 10px; 
+	height: 20px; width: 175px;
+}
+#gauges {
+	position: absolute;
+	font-size: 45px;
+	top:40%;
+	left: 67%;
+	text-align: center;
+	font-weight: bolder;
+}
+#run_gauge{
+	position: absolute;
+	left: 30%; top: 10%;
+	font-size: 100px;
+	text-align: center;
+}
+#strength_gauge {
+	position: absolute;
+	left: 30%; top: 10%;
+	font-size: 100px;
+	text-align: center;
+}
+#flexibility_gauge {
+	position: absolute;
+	left: 30%; top: 10%;
+	font-size: 100px;
+	text-align: center;
+	color: white;
+}
+#log {
+	position: absolute;
+	top: 15%; left: 5%; 
+	width: 15%; height: 40px;
+	border-style: solid; border-color: black; border-width: 2px; border-radius: 10px; 
+	background-image: linear-gradient(white, lightgray);
+	font-style: italic;
+	font-weight: bold;
+}
+#log-list {
+	position: absolute;
+	top: 15%; left: 30%;
+	background-color: white;
+	width: 40%; 
+	font-size: 30px;
+	border-style: solid; border-color: black; border-width: 5px; border-radius: 10px; 
+}
+
+/*Menu class and sub classes for its internal "a" tag link elements.
+The "a.active" class affects the currently active link element,
+ and "a.hover" is for mouseover effects*/
+.menu {
+	position: absolute;
+	text-align: center;
+	width: 200px;
+	left: 71%; top: 12%;
+}
+
+.menu a {
+	background-image: linear-gradient(white, lightgray);
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	display: block;
+	padding: 15px;
+	border: 2px solid black;
+	border-radius: 10px;
+}
+
+.menu a.active {
+	background-image: linear-gradient(#615e00, #ded700);
+	color: white;
+}
+
+.menu a:hover {
+	background-color: lightblue;
+}

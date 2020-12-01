@@ -1,0 +1,93 @@
+body {
+	font-family: "Arial";
+}
+#bground {
+	position: fixed;
+	width: 100%; 
+	height: auto;
+	right: 0%; top: 0%; left: 0%; bottom: 0%;
+	background-size: cover;
+}
+#logo {
+	position: fixed;
+	width: 20%;
+	z-index: 2;
+}
+#bgroundgif{
+	position: fixed;
+	width: 100%; 
+	height: auto;
+	right: 0%; top: -50%;
+	z-index: -1;
+	/*background-size: cover;*/ 
+}
+
+#button_div{
+	margin-left: 3%;
+	width: 10.3%;
+	text-align:center;
+	margin-top: 0%;
+	font-size: 1.00em;
+	z-index: 5;
+}
+
+#canvas {
+	border-style: solid;
+	border-width: 10px;
+	border-color: white;
+	max-height: 35%; max-width: 35%;
+}
+
+#img{
+	z-index: 5;
+}
+#select_label{
+	margin-left: 4%;
+}
+#pic_div{
+	margin-top: -10%;
+	text-align:center;
+	z-index: 0;
+}
+#canvas {
+	border-radius: 10px;
+	border-color: white;
+	border-width: 5px;
+	border-style: solid;
+	z-index: 10;
+}
+#hue{
+	width: 300px;
+	height: auto;
+	z-index: 2;
+	margin-right: 5%;
+}
+#blur{
+	width: 300px;
+	z-index: 2;
+	margin-right: 5%;
+}
+#saturation {
+	-webkit-appearance: slider-vertical;
+	height: 300px;
+	width: 1%;
+	z-index: 2;
+}
+#sepia {
+	-webkit-appearance: slider-vertical;
+	height: 300px;
+	width: 1%;
+	z-index: 2;
+}
+#brightness {
+	-webkit-appearance: slider-vertical;
+	height: 300px;
+	width: 1%;
+	z-index: 2;
+}
+#contrast {
+	-webkit-appearance: slider-vertical;
+	height: 300px;
+	width: 1%;
+	z-index: 2;
+}
