@@ -5,17 +5,17 @@ function exitOverview() {
 
 function submit() {
     sessionStorage.title = $("#title_text").val();
-    if (!sessionStorage.title) {
+    if (sessionStorage.title.length == 0) {
         $("#title_msg").html('<b style="color:red; background-color: rgb(0,0,0,.6);">INSERT A TITLE!</b>');
         return;
     }
     console.log("TITLE", sessionStorage.title);
 
-    if (!sessionStorage.thumbnails) {
+    sessionStorage.thumbnails = $("#thumbnails_container").html();
+    if (!sessionStorage.thumbnails.length == 0) {
         $("#file_msg").html('<b style="color:red; background-color: rgb(0,0,0,.6);">UPLOAD PICS!</b>');
         return;
     }
-    sessionStorage.thumbnails = $("#thumbnails_container").html();
     //console.log("THUMBNAILS", sessionStorage.thumbnails);
     if (!sessionStorage.bgroundimg) {
         $("#file_bground_msg").html('<b style="color:red; background-color: rgb(0,0,0,.6);">UPLOAD PIC!</b>');
