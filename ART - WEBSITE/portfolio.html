@@ -1,0 +1,57 @@
+  <!DOCTYPE HTML>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" href="art.css"> 
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="art.js"></script>
+		<title>ART PORTFOLIO CREATOR</title>
+	</head>
+	<body>
+		<div id="title"></div>
+		<div style="text-align: center; margin-top: 1%;">
+			<img id="overview" onclick="exitOverview()" hidden></img>
+		</div>
+		<div id="thumbnails_container"></div>
+		<!-- render background gif first over the container and listen here png -->
+		<img id="bgroundgif" src="#" alt="GIF"/>
+		<!--src and alt tags not used so that the img icons do not appear initally-->
+		<script>
+			//background elements are removed instead of being changed, because changing causes screen flicker/re-render
+			window.onload = function(){
+				if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+				    console.log("MOBILE");
+				    screen.orientation.lock();  
+				}
+				else {
+					console.log("DESKTOP");
+					document.getElementById("bgroundgif").src = sessionStorage.bgroundimg;
+				}
+				console.log(sessionStorage.title);
+				$("#title").html(sessionStorage.title);
+				$("#title").css("font-family", sessionStorage.font);
+				//console.log(sessionStorage.thumbnails);
+				$("#thumbnails_container").html(sessionStorage.thumbnails);
+				$("*[id*='pic_']").each(function(e) {
+				    $(this).on("click", function(){
+				    	console.log("PIC", $(this).context.id);
+				    	document.getElementById("overview").hidden = false;
+					    document.getElementById("overview").src = $(this).context.src;
+					    
+					    var max_size = 700;
+					    if ($(this).context.naturalWidth > $(this).context.naturalHeight) {
+					      document.getElementById("overview").width = max_size;
+					      document.getElementById("overview").height = max_size*($(this).context.naturalHeight/$(this).context.naturalWidth);
+					    }
+					    else {
+					      document.getElementById("overview").height = max_size;
+					      document.getElementById("overview").width = max_size*($(this).context.naturalWidth/$(this).context.naturalHeight);
+					    }
+				    });
+				});
+
+			}
+		</script> 
+	</body>
+</html>	

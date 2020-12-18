@@ -1,0 +1,116 @@
+  <!DOCTYPE HTML>
+<html lang="en">
+	<head>
+    	<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" href="art.css"> 
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="art.js"></script>
+		<title>ART PORTFOLIO CREATOR</title>
+	</head>
+	<body>
+		<a href="art.html">
+			<img id="logo" src="IMG/logo.png" alt="logo"/>
+		</a>
+		<div style="margin-top:1%;">
+			<form id="selection">
+				<label for="img"><span id="select_label">1) INPUT TITLE</span></label><br><br>
+				<input type="text"  id="title_text" name="title" accept="text/plain" placeholder="example: Juan Designs"><br><br>
+				<label for="font_menu" style="font-weight: bold; font-size: 14px;">FONT</label><br>
+				<select name="font_menu" id="font_menu" default="Arial">
+					<option value="Arial">Arial</option>
+					<option value="Times New Roman">Times New Roman</option>
+					<option value="Garamond">Garamond</option>
+					<option value="Courier New">Courier New</option>
+				</select>
+			</form>
+			<span id="title_msg"></span>
+		</div>
+		<div style="margin-top:1%;">
+			<form id="selection">
+				<label for="img"><span id="select_label">2) SELECT BACKGROUND</span></label><br><br>
+				<div style="position: relative; z-index: 10; margin-bottom:-8%;">
+					<input type="file" id="file_bground" name="file_bground" accept="image/*" style="opacity: 0;">
+				</div>
+				<div style="position: relative; z-index: 1;">
+					<input type="button" id="upload" value="u p l o a d">
+					<span id="file_bground_msg"></span>
+				</div>
+			</form>
+		</div>
+		<div style="margin-top:1%;">
+			<form id="selection">
+				<label for="img"><span id="select_label">3) SELECT IMAGE(S) . . .</span></label><br><br>
+				<div style="position: relative; z-index: 10; margin-bottom:-8%;">
+					<input type="file" multiple id="file" name="file" accept="image/*" style="opacity: 0;">
+				</div>
+				<div style="position: relative; z-index: 1;">
+					<input type="button" id="upload" value="u p l o a d">
+					<span id="file_msg"></span>
+				</div>
+			</form>
+		</div>
+		<div style="margin-top:1%;">
+			<span style="background-color: rgba(0, 0, 0, .6); color:white;">After UPLOADING all your pictures, click SUBMIT</span><br><br>
+			<input type="button" id="submit" onclick="submit();" value="s u b m i t">
+		</div>
+		<div id="thumbnails_container">
+			<div id="thumbnails" class="flex-container"></div>
+		</div>
+		<!-- render background gif first over the container and listen here png -->
+		<img id="bgroundgif" src="#" alt="GIF"/>
+		<!--src and alt tags not used so that the img icons do not appear initally-->
+		<script>
+			//background elements are removed instead of being changed, because changing causes screen flicker/re-render
+			window.onload = function(){
+				if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+				    console.log("MOBILE");
+				    screen.orientation.lock();  
+				}
+				else {
+					console.log("DESKTOP");
+					document.getElementById("bgroundgif").src = "IMG/bground.gif";
+				}
+
+				//setup font decoration for fonts in menu
+				$("option").each(function( index ) {
+					$(this).css("font-family", $(this).val());
+				});
+				//DESIGN upload
+				var img_cnt = 0;
+				$("#file").on("change", function (e) {
+				    if (this.files && this.files[0]) {
+				    	for (var i = 0; i < this.files.length; i++) {
+					        var reader = new FileReader();
+					        reader.onload = function (e) {
+					            var node = document.createElement("img");
+					            node.src = e.target.result;
+					            img_cnt += 1;
+					            node.id = "pic_"+img_cnt.toString();
+					            node.style.cursor = "pointer"; 
+					            document.getElementById("thumbnails").appendChild(node);
+					            console.log("thumbnail added!")
+					        };
+					        reader.readAsDataURL(this.files[i]);
+					    }
+				    }
+				});
+				//BGROUND upload
+				$("#file_bground").on("change", function (e) {
+				    if (this.files && this.files[0]) {
+					        var reader = new FileReader();
+					        reader.onload = function (e) {
+					        	sessionStorage.bgroundimg = e.target.result;
+					        };
+					        reader.readAsDataURL(this.files[0]);
+				    }
+				});
+
+				sessionStorage.font = $("#font_menu").val();
+				$("#font_menu").on("change", function (e) {
+					sessionStorage.font = $("#font_menu").val();
+				});
+			}
+		</script> 
+	</body>
+</html>	
