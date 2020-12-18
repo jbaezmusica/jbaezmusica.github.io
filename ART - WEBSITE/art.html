@@ -72,6 +72,11 @@
 					document.getElementById("bgroundgif").src = "IMG/bground.gif";
 				}
 
+				sessionStorage.title = "";
+				sessionStorage.font = "";
+				sessionStorage.bgroundimg = "";
+				sessionStorage.thumbnails = "";
+
 				//setup font decoration for fonts in menu
 				$("option").each(function( index ) {
 					$(this).css("font-family", $(this).val());
@@ -101,6 +106,7 @@
 					        var reader = new FileReader();
 					        reader.onload = function (e) {
 					        	sessionStorage.bgroundimg = e.target.result;
+					        	$("#file_bground_msg").html('<b style="color:white; background-color: rgb(0,0,0,.6);">PIC UPLOADED!</b>');
 					        };
 					        reader.readAsDataURL(this.files[0]);
 				    }

@@ -4,24 +4,38 @@ function exitOverview() {
 }
 
 function submit() {
+    $("#title_msg").html('');
+    $("#file_msg").html('');
+    if ($("#file_bground_msg").html().includes("UPLOAD PIC!"))
+        $("#file_bground_msg").html('');
+
+    var failed = false;
+
     sessionStorage.title = $("#title_text").val();
+    console.log("TITLE", sessionStorage.title);
     if (sessionStorage.title.length == 0) {
         $("#title_msg").html('<b style="color:red; background-color: rgb(0,0,0,.6);">INSERT A TITLE!</b>');
-        return;
+        failed = true;
     }
-    console.log("TITLE", sessionStorage.title);
+
+     console.log("BACKGROUND IMG", sessionStorage.bgroundimg);
+    if (!sessionStorage.bgroundimg.includes("image")) {
+        $("#file_bground_msg").html('<b style="color:red; background-color: rgb(0,0,0,.6);">UPLOAD PIC!</b>');
+        failed = true;
+    }
 
     sessionStorage.thumbnails = $("#thumbnails_container").html();
-    if (!sessionStorage.thumbnails.length == 0) {
+    console.log("sessionStorage.thumbnails ", sessionStorage.thumbnails );
+    if (!sessionStorage.thumbnails.includes("image")) {
         $("#file_msg").html('<b style="color:red; background-color: rgb(0,0,0,.6);">UPLOAD PICS!</b>');
-        return;
+        failed = true;
     }
     //console.log("THUMBNAILS", sessionStorage.thumbnails);
-    if (!sessionStorage.bgroundimg) {
-        $("#file_bground_msg").html('<b style="color:red; background-color: rgb(0,0,0,.6);">UPLOAD PIC!</b>');
-        return;
-    }
-    console.log("BACKGROUND IMG", sessionStorage.bgroundimg);
+
     console.log("FONT", sessionStorage.font);
-    window.open("portfolio.html");
+
+    if (failed == true)
+        return;
+    else
+        window.open("portfolio.html");
 }
