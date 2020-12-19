@@ -1,0 +1,51 @@
+PROGRESS REPORT 1 - September
+
+PROJECT description and research principles:
+	*Portfolio website that has an intuitive and decorative layout (CSS) and an easy-to-use UI via iconography. 
+
+	Iconography - https://www.atlassian.design/foundations/iconography
+		a) "Icons should be used in a purposeful manner to maximize comprehension and reduce cognitive load when you need to call attention to a particular action, command, or section." 
+
+		I am using Iconography primarily in my UI design because I want to have the UI be as intuitive as possible by reducing the cognitive load of the UI as much as possible. Icons are also more universal and often are not language/region specific. En example of this can be seen with the usage of Emojis in text messages. 
+
+		b) "As a general rule, icons should be used in combination with meaningful text to support users progressing through the product in an accessible manner."
+
+		I am using text tool tips for the icons to provide further comprehension of the UI. I used tool tips in order to keep the amount of material
+		the user initally sees to a minimum to reduce congitive load. By using dynamic tooltips instead of static labels, I can save space in the UI which adheres to a minimalistic approach of UI design. 
+
+ 	Minimalism - https://uxplanet.org/lean-and-mean-power-of-minimalism-in-ui-design-5ca37eb32ac8
+		"Characteristics of minimalism: 
+			Simplicity
+			Clarity
+			Expressive visual hierarchy
+			High attention to proportions and composition
+			Functionality of every element
+			Big amount of spare space
+			High attention ratio to core details
+			Typography as a significant design element
+			Eliminating non-functional decorative elements"
+
+LANGUAGES used: 
+	HTML, CSS, JS
+
+Development: 
+- Used HTML5 standard html
+- Used CSS
+- Developed main.html page titled "Juan Baez PORTFOLIO" as portfolio home page
+- the main.html portfoilio page contains clickable links as icons for UI
+- the ICONS represent different aspects of my interests such as MUSIC, CAREER, HEALTH, ART, PHOTGRAHY. 
+- the UI is decorated with CSS to have a semi-circle layout and complement the design and style of the background
+- the MUSIC icon on the main.html portfolio page links to a music site I created for a favorite music group of mine. 
+- the MUSIC sk.html music titled PRETTY BOY uses a video as the background, and then the center of the video is clickable *NOTE: VIDEO BACKGROUND only works in MOZILLA and EDGE browsers.
+  which leads to a intuitve UI menu that uses icons to refer to different music platforms.
+
+Upcoming:
+- Mobile layout compatibility
+- My own UI's/websites for each of the other Portfolio links like I did for the MUSIC page.
+	- Make a CAREER UI that will allow Resume and Profile pic upload and/or resume creation.
+	- Make a HEALTH UI that will allow for calorie and nutrition tracking input.
+	- Make an ART UI that will allow for picture upload and basic editing.
+	- Make a PHOTOGRAPHY UI that will allow for picture upload and basic editing.
+
+	Objective: 
+		Explore different UI design elements for varying types of services like nutrition tracking, resume profiles, art profiles, etc... 

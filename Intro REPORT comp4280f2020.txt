@@ -1,0 +1,41 @@
+Juan Baez
+#comp4280f2020 
+Intro REPORT
+
+GIT Page LINK: https://jbaezmusica.github.io/
+GIT Repo LINK: https://github.com/jbaezmusica/jbaezmusica.github.io
+
+In Computer Graphics, I am interested in the aspects of the User Interface Design Model (https://ieeexplore.ieee.org/document/4287912). In UI design, there are many attributes that contribute to the an interface’s accessibility and ease-of-use. I want to learn about these design aspects such as visual layouts, dynamic graphics in js, menu setup and intuitive placement and navigation, intuitive controls, button types and control layouts for easy comprehension and a low learning curve.  My idea is to create a variety of different applications, each one with an intuitive and minimalistic design that will also make efficient use of icons and have interactivity/responsiveness implemented. This will provide high functionality and usability while maintaining a fast learning curve. 
+
+UI directly relates to computer graphics because computer graphics utilizes the same skill set (html, css, js, jquery) while also serving as the core to UI. UI is composed of a variation of interactive/responsive computer graphic elements that are organized in a strategic layout to allow for user interaction and provide a  service for the user!
+
+The technical aspects needed for this focus in UI/UX would be Web-based Computer Graphics and Mobile+Cloud Computer Graphics, which includes learning skills such as html, css, js, and jquery. I want to focus on the technical skills involved with these categories of computer graphics. This also relates to my interest in App UI/UX which falls under Mobile+Cloud Computer Graphics.  
+
+I am passionate about this area of computer graphics because I am very interested in creativity and the creative flow. In UI/UX design, a complex UI can ruin the user experience and slow down the creative process by causing the inability to create and execute tasks efficiently. This results in confusion and lack of productivity which is detrimental to not only the creative process, but the working process for employees using software for their job. I learn what it takes to create the most efficient UI’s for the best user experience with the lowest learning curve. 
+
+PROJECT description and research principles:
+	*Portfolio website that has an intuitive and decorative layout (CSS) and an easy-to-use UI via iconography. 
+
+	Iconography - https://www.atlassian.design/foundations/iconography
+		a) "Icons should be used in a purposeful manner to maximize comprehension and reduce cognitive load when you need to call attention to a particular action, command, or section." 
+
+		I am using Iconography primarily in my UI design because I want to have the UI be as intuitive as possible by reducing the cognitive load of the UI as much as possible. Icons are also more universal and often are not language/region specific. En example of this can be seen with the usage of Emojis in text messages. 
+
+		b) "As a general rule, icons should be used in combination with meaningful text to support users progressing through the product in an accessible manner."
+
+		I am using text tool tips for the icons to provide further comprehension of the UI. I used tool tips in order to keep the amount of material
+		the user initally sees to a minimum to reduce congitive load. By using dynamic tooltips instead of static labels, I can save space in the UI which adheres to a minimalistic approach of UI design. 
+
+ 	Minimalism - https://uxplanet.org/lean-and-mean-power-of-minimalism-in-ui-design-5ca37eb32ac8
+		"Characteristics of minimalism: 
+			Simplicity
+			Clarity
+			Expressive visual hierarchy
+			High attention to proportions and composition
+			Functionality of every element
+			Big amount of spare space
+			High attention ratio to core details
+			Typography as a significant design element
+			Eliminating non-functional decorative elements"
+
+*Check README for instructions on how-to-use
